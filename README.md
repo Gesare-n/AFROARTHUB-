@@ -12,7 +12,7 @@ AfroArtHub Is An Art Marketplace; It's A Dynamic Community Where Creativity Thri
 -[Features](#features)
 -[Description of Project](#getting-started)
 -[Set-up Instructions](#set-up-instruction)
--[Link to live site on GitHub Pages]
+-[Project walk through video].(#link-to-project-walk-through-video).
 -[Copyright and License info](#license)
 
 
@@ -41,9 +41,8 @@ npm install
 
 4.Start the application
 
-
-##Live Demo
-Vist the live site:
+Link to project walk-through video :
+link:https://drive.google.com/file/d/1DTPm-HIroATnv7n6dYf5T7WUvrRP1B9E/view
 
 
 ##License
