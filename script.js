@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   fetchData();
 
   function fetchData() {
@@ -14,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function renderArtWorks(art) {
-    console.log(art);
     const artContainer = document.createElement("div");
     artContainer.classList.add("art-container");
     artContainer.dataset.artId = art.id; // Unique identifier
@@ -27,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
     document.querySelector(".products-container").appendChild(artContainer);
 
-    // Button to add art to cart
     const button = artContainer.querySelector(".add-to-cart");
     button.addEventListener("click", () => updateQuantity(art.id));
   }
@@ -49,18 +46,51 @@ document.addEventListener("DOMContentLoaded", () => {
     cartItems.style.display = "block";
 
     document.querySelector("#products").addEventListener("click", () => {
-      console.log("clicked")
-      console.log(cartItems)
-      console.log(products)
       cartItems.style.display = "none";
       products.style.display = "grid";
     });
   }
 
+  const checkoutBtn = document.createElement("button");
+  checkoutBtn.id = "checkout-btn";
+  checkoutBtn.textContent = "Checkout";
+  document.querySelector(".cart-section").appendChild(checkoutBtn);
+  checkoutBtn.addEventListener("click", checkout);
+
+  function checkout() {
+    const cartItems = document.querySelectorAll(".cart-items .art-container");
+    if (cartItems.length === 0) {
+      alert("Your cart is empty. Please add items before checking out.");
+      return;
+    }
+
+    // Calculate total price (replace this with your logic)
+    let totalPrice = 0;
+    cartItems.forEach((cartItem) => {
+      const price = parseFloat(cartItem.querySelector("p:nth-child(3)").textContent);
+      totalPrice += price;
+    });
+
+    // Display a summary of items and total price
+    let summary = "Items in your cart:\n";
+    cartItems.forEach((cartItem) => {
+      summary += `${cartItem.querySelector("p:nth-child(2)").textContent}\n`;
+    });
+    summary += `\nTotal Price: $${totalPrice.toFixed(2)}`;
+
+    // Confirm the checkout
+    const confirmed = confirm(summary);
+    if (confirmed) {
+      // Implement further checkout logic, such as payment processing
+      alert("Checkout successful! Thank you for your purchase.");
+      // Reset the cart after successful checkout (you may want to adjust this based on your specific requirements)
+      document.querySelector(".cart-items").innerHTML = "";
+    }
+  }
+
   function updateQuantity(artId) {
     addToCart(artId);
     let quantity = document.querySelector(`.art-container[data-art-id="${artId}"] .quantity`);
-    console.log(quantity.textContent);
     if (parseInt(quantity.textContent) > 0) {
       quantity.textContent = parseInt(quantity.textContent) - 1;
     } else {
