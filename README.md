@@ -24,20 +24,20 @@ AfroArtHub is an innovative e-commerce app that serves as an interactive space f
 
 -**Artwork Showcase:**Explore a diverse range of artworks.
 -**Materials Marketplace:**Find and purchase top-notch materials
--**Affordable Delivery:**Hassle-free and Affordable delivery.
 -**Secure Transactions:**Safe and Transperent buying      experience for both buyers and sellers.
--**Connect with Artists:**Look art more artworks by the same artist and engage with the same artists.
--**Commission Artworks:**Commision feature through the connect with artists allows for conversations on direct collaboration with the artist for custom creations.
--**Art Blogs:**this encourages community building among app users , educational content can also be displayed while covering trends and insights.
 
 
 ##Getting started
 
 1.Clone the repository
+git clone https://github.com/Gesare-n/AFROARTHUB-
 
 2.Navigate to the project directory
+cd project
 
 3.Install dependencies
+npm install
+
 
 4.Start the application
 
